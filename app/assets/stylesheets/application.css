@@ -10,26 +10,38 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require _bootstrap
+
  *= require_tree .
+ *= require _bootstrap
  *= require_self
+ *= require font-awesome
  */
 
 html {
+    margin:0;
     position: relative;
     min-height: 100%;
 }
 body {
+    margin:0;
+    padding:0;
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
+    /*margin-bottom: 60px;*/
 }
 .footer {
-    position: absolute;
-    display:block;
     padding-top:20px;
     bottom: 0;
+    left:0;
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 60px;
     background-color: #f5f5f5;
+}
+ul{
+    list-style:none;
+}
+li .fa{
+    width:10px;
+    margin-right:10px;
+    text-align:center;
 }
