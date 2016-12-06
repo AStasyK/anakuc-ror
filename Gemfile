@@ -51,6 +51,7 @@ gem 'haml-rails'
 gem 'slim'
 gem 'slim-rails'
 gem 'bootstrap-sass'
+gem 'bootstrap-sass-extras'
 gem 'font-awesome-rails'
 
 gem 'pg'
