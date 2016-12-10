@@ -1,0 +1,27 @@
+h1 Listing platforms
+
+table
+  thead
+    tr
+      th Family
+      th Name
+      th Year
+      th Id category
+      th
+      th
+      th
+
+  tbody
+    - @platforms.each do |platform|
+      tr
+        td = platform.family
+        td = platform.name
+        td = platform.year
+        td = platform.id_category
+        td = link_to 'Show', platform
+        td = link_to 'Edit', edit_platform_path(platform)
+        td = link_to 'Destroy', platform, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Platform', new_platform_path

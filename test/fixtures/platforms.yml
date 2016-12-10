@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  family: MyString
+  name: MyString
+  year: 1
+  id_category: 1
+
+two:
+  family: MyString
+  name: MyString
+  year: 1
+  id_category: 1

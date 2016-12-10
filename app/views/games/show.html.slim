@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @game.name
+p
+  strong Category:
+  = @game.category_id
+p
+  strong Genre:
+  = @game.genre
+p
+  strong Year:
+  = @game.year
+p
+  strong Company:
+  = @game.company
+
+= link_to 'Edit', edit_game_path(@game)
+'|
+= link_to 'Back', games_path

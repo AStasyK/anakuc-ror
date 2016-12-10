@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Family:
+  = @platform.family
+p
+  strong Name:
+  = @platform.name
+p
+  strong Year:
+  = @platform.year
+p
+  strong Id category:
+  = @platform.id_category
+
+= link_to 'Edit', edit_platform_path(@platform)
+'|
+= link_to 'Back', platforms_path

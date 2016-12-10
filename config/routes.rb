@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :games
+  resources :platforms
+  resources :categories
   resources :users
   root 'main#index'
 
