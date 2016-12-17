@@ -1,24 +1,17 @@
-# README
+Проект на Ruby on Rails
+=======================
+### Описание проекта
+Сайт для поиска рекомендаций фильмов, книг, комиксов, игр с возможностью добавления конкретных позиций в Избранное и подписки на тех пользователей, чье Избранное приходится по вкусу 
+### Структура проекта (основные таблицы)
+| Users         | Таблица пользователей   |
+| ------------- |:------------------------|
+| id            | PK                      |
+| name          | для отображения на сайте|
+| email         | =login                  |
+| password      |                         |
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+| Relationships | Связь пользователей через отношение<br> юзер-подписчик|
+| ------------- |:-----------------------------------------|
+| id            | PK                                       |
+| followed_id   | Содержит id юзера, на которого подписаны |
+| follower_id   | Содержит id юзера-подписчика             |
