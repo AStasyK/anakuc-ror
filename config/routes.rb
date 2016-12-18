@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :values
+  resources :images
   resources :games
   resources :platforms
   resources :categories

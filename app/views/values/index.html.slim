@@ -1,0 +1,25 @@
+h1 Listing values
+
+table
+  thead
+    tr
+      th User
+      th Image
+      th Value
+      th
+      th
+      th
+
+  tbody
+    - @values.each do |value|
+      tr
+        td = value.user_id
+        td = value.image_id
+        td = value.value
+        td = link_to 'Show', value
+        td = link_to 'Edit', edit_value_path(value)
+        td = link_to 'Destroy', value, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Value', new_value_path

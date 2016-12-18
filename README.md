@@ -1,24 +1,54 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Проект на Ruby on Rails
+=======================
+### Описание проекта
+Сайт для поиска рекомендаций фильмов, книг, комиксов, игр с возможностью добавления конкретных позиций в Избранное и подписки на тех пользователей, чье Избранное приходится по вкусу 
+### Структура проекта (основные таблицы)
+| Table          | Fields              | Comment                  |
+| ---------------|:--------------------|:-------------------------|
+| **Users**      |                     | **Таблица пользователей**|
+|                | id                  | PK                       |
+|                | name                | для отображения на сайте |
+|                | email               | =login                   |
+|                | password            ||
+| **Relationships** ||**Связь пользователей через отношение<br> юзер-подписчик** |
+|                | id                  | PK                                      |
+|                | followed_id | Содержит id юзера, на которого подписаны, FK1   |
+|                | follower_id | Содержит id юзера-подписчика, FK2               |
+| **Categories** |                     |**Справочник категорий**  |
+|                | id                  | PK                       |
+|                | name                |                          |
+| **Games**      |                     | **Таблица игр**          |
+|                | id                  | PK                       |
+|                | name                |                          |
+|                | category_id         | FK                       |
+|                | genre               |                          |
+|                | year                | Год выпуска              |
+|                | company             | Разработчик              |
+|                | image_id            | FK                       |
+| **Users_games**|                     | **Таблица связи юзера и игры<br> для отношения many-to-many**  |
+|                | id                  | PK                       |
+|                | user_id             | FK1                      |
+|                | game_id             | FK2                      |
+| **Platforms**  |                     | **Таблица игровых платформ**                                   |
+|                | id                  | PK                       |
+|                | family              | Укрунепненная группа типа консолей/ПК<br> деление по компаниям |
+|                | name                | Конкретная модель консоли/ОС ПК (может отсутствовать)          |
+|                | category_id         | FK                       |
+|                | image_id            | FK                       |
+| **Gaming_systems** |                 | **Таблица связей игр с<br> поддерживающими их платформами**    |
+|                | id                  | PK                       |
+|                | game_id             | FK1                      |
+|                | platform_id         | FK2                      |
+|**Users_platforms** || **Таблица связи юзера и игровых<br> платформ (many-to-many)** |
+|                | id                  | PK                       |
+|                | user_id             | FK1                      |
+|                | platform_id         | FK2                      |
+| **Images** || **Общая база картинок для позиций всех категорий**|
+|                | id                  | PK                       |
+|                | file                | Путь до файла            |
+|                | ave_value           |                          |
+| **Values** || **Общая база картинок для позиций всех категорий**|
+|                | id                  | PK                       |
+|                | user_id             |                          |
+|                | image_id            | Оценка цепляется к картинке. Это позволяет<br> не создавать полиморфные связи                                  |
+|                | value               |                          |

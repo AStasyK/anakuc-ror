@@ -15,11 +15,11 @@ Relationship.delete_all
 Relationship.reset_pk_sequence
 Relationship.create(
     [
-        {user_id: 1, follower_id: 2},
-        {user_id: 2, follower_id: 3},
-        {user_id: 3, follower_id: 2},
-        {user_id: 4, follower_id: 6},
-        {user_id: 5, follower_id: 4}
+        {followed_id: 1, follower_id: 2},
+        {followed_id: 2, follower_id: 3},
+        {followed_id: 3, follower_id: 2},
+        {followed_id: 4, follower_id: 6},
+        {followed_id: 5, follower_id: 4}
     ]
 )
 
@@ -34,21 +34,6 @@ Category.create(
     ]
 )
 
-Favourite.delete_all
-Favourite.reset_pk_sequence
-Favourite.create(
-    [
-        {user_id: 1, game_id: 1},
-        {user_id: 2, game_id: 1},
-        {user_id: 3, game_id: 1},
-        {user_id: 4, game_id: 2},
-        {user_id: 4, game_id: 3},
-        {user_id: 5, game_id: 2},
-        {user_id: 5, game_id: 4},
-        {user_id: 6, game_id: 2},
-        {user_id: 6, game_id: 3}
-    ]
-)
 
 Platform.delete_all
 Platform.reset_pk_sequence
@@ -94,3 +79,12 @@ GamingSystem.create(
         {platform_id: 6, game_id: 4}
     ]
 )
+
+User.find(1).games << Game.find(1)
+User.find(2).games << Game.find(1)
+User.find(3).games << Game.find(1)
+User.find(4).games << Game.find(2)
+User.find(4).games << Game.find(3)
+User.find(5).games << Game.find(2)
+User.find(6).games << Game.find(2)
+User.find(6).games << Game.find(3)
