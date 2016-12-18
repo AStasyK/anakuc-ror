@@ -2,12 +2,12 @@ User.delete_all
 User.reset_pk_sequence #with gem reset sequence
 User.create(
     [
-        {name: 'Sullivan', email: 'sully@gmail.com', password: "a0411cdc8fa047d73aaa559cb0d294ee"},
-        {name: 'Nathan Drake', email: 'treasure-hunter@gmail.com', password: "d7515ad71ed2fd3f622a290cbd737c21"},
-        {name: 'Elena Fisher', email: 'efisher@gmail.com', password: "2163c17ca50bb0fcd227460c4f682a40"},
-        {name: 'Yukimura Sanada', email: 'ysanada@gmail.com', password: "2853317c4abbac70528b177856a1f100"},
-        {name: 'Shingen Takeda', email: 'tigerofkai@gmail.com', password: "42ce2f91530a3e22f4112ac9c069de75"},
-        {name: 'Sasuke Sarutobi', email: 'shinobi@gmail.com', password: "37fc2767ab1c4826c736f1fced9a4ae7"}
+        {name: 'Sullivan', email: 'sully@gmail.com', password: 'a0411cdc8fa047d73aaa559cb0d294ee'},
+        {name: 'Nathan Drake', email: 'treasure-hunter@gmail.com', password: 'd7515ad71ed2fd3f622a290cbd737c21'},
+        {name: 'Elena Fisher', email: 'efisher@gmail.com', password: '2163c17ca50bb0fcd227460c4f682a40'},
+        {name: 'Yukimura Sanada', email: 'ysanada@gmail.com', password: '2853317c4abbac70528b177856a1f100'},
+        {name: 'Shingen Takeda', email: 'tigerofkai@gmail.com', password: '42ce2f91530a3e22f4112ac9c069de75'},
+        {name: 'Sasuke Sarutobi', email: 'shinobi@gmail.com', password: '37fc2767ab1c4826c736f1fced9a4ae7'}
     ]
 )
 
@@ -34,20 +34,39 @@ Category.create(
     ]
 )
 
+Image.delete_all
+Image.reset_pk_sequence
+Image.create(
+    [
+        {file: '1.jpg', category_id: 2},
+        {file: '2.jpg', category_id: 2},
+        {file: '3.jpg', category_id: 2},
+        {file: '4.jpg', category_id: 2},
+        {file: '5.png', category_id: 1},
+        {file: '6.jpg', category_id: 1},
+        {file: '7.jpg', category_id: 1},
+        {file: '8.jpg', category_id: 1},
+        {file: '9.jpg', category_id: 1},
+        {file: '10.jpg', category_id: 1},
+        {file: '11.jpg', category_id: 1},
+        {file: '12.png', category_id: 1},
+        {file: '13.jpg', category_id: 1}
+    ]
+)
 
 Platform.delete_all
 Platform.reset_pk_sequence
 Platform.create(
     [
-        {family: 'PlayStation', name: 'PlayStation3', category_id: 1},
-        {family: 'PlayStation', name: 'PlayStation4', category_id: 1},
-        {family: 'PlayStation', name: 'PlayStation Vita', category_id: 1},
-        {family: 'XBox', name: 'XBox 360', category_id: 1},
-        {family: 'XBox', name: 'XBox One', category_id: 1},
-        {family: 'PC', name: 'Microsoft Windows', category_id: 1},
-        {family: 'PC', name: 'Mac OS', category_id: 1},
-        {family: 'Nintendo', name: 'Nintendo DS', category_id: 1},
-        {family: 'Nintendo', name: 'Nintendo 3DS', category_id: 1}
+        {family: 'PlayStation', name: 'PlayStation3', category_id: 1, image_id: 5},
+        {family: 'PlayStation', name: 'PlayStation4', category_id: 1, image_id: 6},
+        {family: 'PlayStation', name: 'PlayStation Vita', category_id: 1, image_id: 7},
+        {family: 'XBox', name: 'XBox 360', category_id: 1, image_id: 8},
+        {family: 'XBox', name: 'XBox One', category_id: 1, image_id: 9},
+        {family: 'PC', name: 'Microsoft Windows', category_id: 1, image_id: 10},
+        {family: 'PC', name: 'Mac OS', category_id: 1, image_id: 11},
+        {family: 'Nintendo', name: 'Nintendo DS', category_id: 1, image_id: 12},
+        {family: 'Nintendo', name: 'Nintendo 3DS', category_id: 1, image_id: 13}
     ]
 )
 
@@ -55,10 +74,10 @@ Game.delete_all
 Game.reset_pk_sequence
 Game.create(
     [
-        {name: 'Uncharted: Drake’s Fortune', category_id: 2, genre: 'Action-adventure', year: 2007, company: 'Naughty Dog'},
-        {name: 'Sengoku Basara 4', category_id: 2, genre: 'Hack and slash', year: 2014, company: 'Capcom'},
-        {name: 'Samurai Warriors 4', category_id: 2, genre: 'Hack and slash', year: 2014, company: 'Tecmo Koei'},
-        {name: 'Phoenix Wright: Ace Attorney', category_id: 2, genre: 'Visual Novel', year: 2001, company: 'Capcom'},
+        {name: 'Dark Souls', category_id: 2, genre: 'Action/RPG', year: 2011, company: 'FromSoftware, n-Space', image_id: 1},
+        {name: 'Sengoku Basara 4', category_id: 2, genre: 'Hack and slash', year: 2014, company: 'Capcom', image_id: 2},
+        {name: 'Samurai Warriors 4', category_id: 2, genre: 'Hack and slash', year: 2014, company: 'Tecmo Koei', image_id: 3},
+        {name: 'Phoenix Wright: Ace Attorney', category_id: 2, genre: 'Visual Novel', year: 2001, company: 'Capcom', image_id: 4}
     ]
 )
 
@@ -70,13 +89,14 @@ GamingSystem.create(
         {platform_id: 1, game_id: 1},
         {platform_id: 1, game_id: 2},
         {platform_id: 1, game_id: 3},
-        {platform_id: 2, game_id: 1},
         {platform_id: 2, game_id: 2},
         {platform_id: 2, game_id: 3},
+        {platform_id: 4, game_id: 1},
         {platform_id: 6, game_id: 3},
         {platform_id: 3, game_id: 3},
         {platform_id: 8, game_id: 4},
-        {platform_id: 6, game_id: 4}
+        {platform_id: 6, game_id: 4},
+        {platform_id: 6, game_id: 1}
     ]
 )
 

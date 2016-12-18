@@ -1,0 +1,4 @@
+#select_categories
+  = select_tag :categories, content_tag(:option, 'Select category', value: "0") + options_from_collection_for_select(@categories, :id, :name, include_blank: 'Select category')
+
+#images

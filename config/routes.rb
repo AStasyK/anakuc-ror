@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'rate' => 'rate#index'
+
+  get 'rate/select'
+
+  #root to: 'rate#index'
+  get '/rate/(:id)' => 'rate#select'
+
   resources :values
   resources :images
   resources :games
