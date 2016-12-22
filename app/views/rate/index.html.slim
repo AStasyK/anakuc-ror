@@ -2,7 +2,7 @@
   = select_tag :categories, content_tag(:option, 'Select category', value: "0") + options_from_collection_for_select(@categories, :id, :name, include_blank: 'Select category')
 
 
-#myCarousel.myCarousel.carousel.slide data-ride="carousel"
+#myCarousel.myCarousel.carousel.slide  data-interval="false"
   ol.carousel-indicators
     li.active data-target="#myCarousel" data-slide-to="0"
     li data-target="#myCarousel" data-slide-to="1"
