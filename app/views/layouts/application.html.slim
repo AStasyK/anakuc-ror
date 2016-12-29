@@ -8,6 +8,11 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track'=> 'reload'
   body
     = render 'shared/header'
+
+    - flash.each do |key, value|
+      p id=key
+        = value
+
     .container-fluid
       = yield
     = render 'shared/footer'

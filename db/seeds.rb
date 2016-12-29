@@ -1,13 +1,13 @@
 User.delete_all
 User.reset_pk_sequence #with gem reset sequence
-User.create(
+User.create!(
     [
-        {name: 'Sullivan', email: 'sully@gmail.com', password: 'a0411cdc8fa047d73aaa559cb0d294ee'},
-        {name: 'Nathan Drake', email: 'treasure-hunter@gmail.com', password: 'd7515ad71ed2fd3f622a290cbd737c21'},
-        {name: 'Elena Fisher', email: 'efisher@gmail.com', password: '2163c17ca50bb0fcd227460c4f682a40'},
-        {name: 'Yukimura Sanada', email: 'ysanada@gmail.com', password: '2853317c4abbac70528b177856a1f100'},
-        {name: 'Shingen Takeda', email: 'tigerofkai@gmail.com', password: '42ce2f91530a3e22f4112ac9c069de75'},
-        {name: 'Sasuke Sarutobi', email: 'shinobi@gmail.com', password: '37fc2767ab1c4826c736f1fced9a4ae7'}
+        {name: 'Sullivan', email: 'sully@gmail.com', password: 'sully1'},
+        {name: 'Nathan Drake', email: 'treasure-hunter@gmail.com', password: 'nathandrake'},
+        {name: 'Elena Fisher', email: 'efisher@gmail.com', password: 'elenafisher'},
+        {name: 'Yukimura Sanada', email: 'ysanada@gmail.com', password: 'nobushige'},
+        {name: 'Shingen Takeda', email: 'tigerofkai@gmail.com', password: 'kaitiger'},
+        {name: 'Sasuke Sarutobi', email: 'shinobi@gmail.com', password: 'shinobi'}
     ]
 )
 
@@ -25,7 +25,7 @@ Relationship.create(
 
 Category.delete_all
 Category.reset_pk_sequence
-Category.create(
+Category.create!(
     [
         {name: 'Platforms'},
         {name: 'Games'},
@@ -36,7 +36,7 @@ Category.create(
 
 Image.delete_all
 Image.reset_pk_sequence
-Image.create(
+Image.create!(
     [
         {file: '1.jpg', category_id: 2},
         {file: '2.jpg', category_id: 2},
@@ -56,7 +56,7 @@ Image.create(
 
 Platform.delete_all
 Platform.reset_pk_sequence
-Platform.create(
+Platform.create!(
     [
         {family: 'PlayStation', name: 'PlayStation3', category_id: 1, image_id: 5},
         {family: 'PlayStation', name: 'PlayStation4', category_id: 1, image_id: 6},
@@ -72,7 +72,7 @@ Platform.create(
 
 Game.delete_all
 Game.reset_pk_sequence
-Game.create(
+Game.create!(
     [
         {name: 'Dark Souls', category_id: 2, genre: 'Action/RPG', year: 2011, company: 'FromSoftware, n-Space', image_id: 1},
         {name: 'Sengoku Basara 4', category_id: 2, genre: 'Hack and slash', year: 2014, company: 'Capcom', image_id: 2},
@@ -84,7 +84,7 @@ Game.create(
 
 GamingSystem.delete_all
 GamingSystem.reset_pk_sequence
-GamingSystem.create(
+GamingSystem.create!(
     [
         {platform_id: 1, game_id: 1},
         {platform_id: 1, game_id: 2},
