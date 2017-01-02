@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get '/login' => 'sessions#new', as: 'login'
-  get '/logout' => 'sessions#destroy', as: 'logout'
+  delete '/logout' => 'sessions#destroy', as: 'logout'
 
   get 'rate' => 'rate#index'
 

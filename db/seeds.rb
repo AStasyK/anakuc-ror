@@ -13,7 +13,7 @@ User.create!(
 
 Relationship.delete_all
 Relationship.reset_pk_sequence
-Relationship.create(
+Relationship.create!(
     [
         {followed_id: 1, follower_id: 2},
         {followed_id: 2, follower_id: 3},

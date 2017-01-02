@@ -12,7 +12,8 @@ h1 Log in
         = f.label :password
         = f.password_field :password
       .actions
-        = f.submit :log_in, class: 'btn btn-large btn-primary'
+        = f.submit 'Log in', class: 'btn btn-large btn-primary'
     p.sign_up_link
-      = :new_user?
-      = link_to :sign_up
+      = 'Are you new here?'
+      br
+      = link_to 'Sign up', new_user_path

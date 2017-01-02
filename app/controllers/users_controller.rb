@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :ensure_login, only: [:new, :create]
   before_action :set_user, only: %i[show edit update destroy]
 
   # GET /users
@@ -28,9 +29,12 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        log_in @user
+        flash.now[:notice] = "Welcome!"
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
+        flash.now[:alert] = "Something went wrong during registration process"
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -69,6 +73,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirm)
+      params.require(:user).permit(:name, :email, :password)
     end
 end

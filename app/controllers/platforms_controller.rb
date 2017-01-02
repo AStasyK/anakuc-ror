@@ -69,6 +69,6 @@ class PlatformsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def platform_params
-      params.require(:platform).permit(:family, :name, :year, :id_category)
+      params.require(:platform).permit(:family, :name, :category_id, :image_id)
     end
 end

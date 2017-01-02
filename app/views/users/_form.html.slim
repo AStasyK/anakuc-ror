@@ -1,21 +1,25 @@
-= form_for @user, html: { class: "form-horizontal" } do |f|
-  .form-group
-    = f.label :name, class: 'control-label col-md-2'
-    .col-md-10
-      = f.text_field :name, class: 'text_field form-control'
-  .form-group
-    = f.label :email, class: 'control-label col-md-2'
-    .col-md-10
-      = f.text_field :email, class: 'text_field form-control'
-  .form-group
-    = f.label :password, class: 'control-label col-md-2'
-    .col-md-10
-      = f.text_field :password, class: 'text_field form-control'
-  .form-group
-    = f.label :password_confirm, class: 'control-label col-md-2'
-    .col-md-10
-      = f.text_field :password_confirm, class: 'text_field form-control'
-  .form-group
-    .col-md-offset-2.col-md-10
-      = f.submit nil, class: 'btn btn-primary'
-      = link_to t('.cancel', default: t("helpers.links.cancel")), users_path, class: 'btn btn-default'
+= form_for @user do |f|
+  - if @user.errors.any?
+    #error_explanation
+      h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      ul
+        - @user.errors.full_messages.each do |msg|
+          li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :password
+    = f.password_field :password
+  .field
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+
+
+  .actions
+    - #= f.submit 'Save'
+    = f.submit 'Create Account', class: "btn btn-large btn-primary"

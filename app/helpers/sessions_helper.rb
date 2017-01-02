@@ -22,7 +22,8 @@ module SessionsHelper
   #log out
   def log_out
     unless current_user.blank?
-      current_user.update_attribute(:remember_token, User.encrypt(new_remember_token))
+      new_token = User.new_remember_token
+      current_user.update_attribute(:remember_token, User.encrypt(new_token))
       cookies.delete(:remember_token)
       self.current_user = nil
     end

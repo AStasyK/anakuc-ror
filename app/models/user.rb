@@ -9,7 +9,7 @@ class User < ApplicationRecord
   #connections
   has_many :relationships
   has_many :followers, through: :relationships, source: :user, foreign_key: :follower_id
-  has_many :followeds, through: :relationships, foreign_key: :followed_id
+  has_many :followeds, through: :relationships, source: :user, foreign_key: :followed_id
   has_and_belongs_to_many :games
 
   #validations
@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates_length_of :name, maximum: 50, too_long: 'Please, choose a name within 50 chars!'
   validates_length_of :password, minimum: 6, too_short: 'Please, choose a longer password, 6 chars at least!'
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create, message: 'Email format is invalid'
-
+  validates_uniqueness_of :email, case_sensitive: false
   #remeber_token generation
   def User.new_remember_token
     SecureRandom.urlsafe_base64
@@ -29,7 +29,7 @@ class User < ApplicationRecord
   end
 
   private
-  def create_remeber_token
+  def create_remember_token
     self.remember_token = User.encrypt(User.new_remember_token)
   end
 end
