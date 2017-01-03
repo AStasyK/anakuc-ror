@@ -2,10 +2,10 @@ p#notice = notice
 
 p
   strong File:
-  = @image.file
+  img (src= "/assets/pictures/#{@image.file}")
 p
   strong Ave-value:
-  = @image.ave-value
+  = @image.ave_value
 
 = link_to 'Edit', edit_image_path(@image)
 '|

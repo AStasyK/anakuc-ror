@@ -3,7 +3,7 @@ $ ->
     $.get
       url: "/rate/#{$('select').val()}"
       success: (data) ->
-        box = $ '.carousel-inner'
+        box = $('.carousel-inner')
         box.empty()
         data.forEach (file) ->
           box.append "<div class='item'><img width='400' src='/assets/pictures/#{file}'></div>"

@@ -9,10 +9,8 @@ html
   body
     = render 'shared/header'
 
-    - flash.each do |key, value|
-      p id=key
-        = value
-
     .container-fluid
+      = render 'shared/flash'
       = yield
+
     = render 'shared/footer'

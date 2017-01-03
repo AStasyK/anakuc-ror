@@ -38,7 +38,7 @@ Image.delete_all
 Image.reset_pk_sequence
 Image.create!(
     [
-        {file: '1.jpg', category_id: 2},
+        {file: '1.jpeg', category_id: 2},
         {file: '2.jpg', category_id: 2},
         {file: '3.jpg', category_id: 2},
         {file: '4.jpg', category_id: 2},

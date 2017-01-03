@@ -1,5 +1,9 @@
-h1 Main page
-ul
-  li
-    i.fa.fa-address-card
-    = link_to 'Users', users_path
+.center.jumbotron
+  h1 Welcome to the Experteese
+  h2 Ruby on Rails sample application.
+
+  - if logged_in?
+    = link_to 'Proceed to work!', rate_path, class: 'btn btn-lg btn-primary'
+
+  - else
+    = link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary'

@@ -1,19 +1,23 @@
 // Place all the styles related to the rate controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.myCarousel{
-  width:500px;
+.myCarousel {
+  width: 500px;
   margin: 0 auto;
 }
-.item{
+.carousel-inner {
+  padding-left: 75px;
+  padding-right: 75px;
+}
+.item {
   margin: 0 auto;
-  text-align:center;
+  text-align: center;
 }
-.arrow-container{
-  position:relative;
+.arrow-container {
+  position: relative;
 }
-.arrow{
-  position:absolute;
-  top:100px;
-  left:50px;
+.arrow {
+  position: absolute;
+  top: 150px;
+  left: 0;
 }
