@@ -26,14 +26,14 @@ header
         ul.nav.navbar-nav.navbar-right
           - if logged_in?
             span
-              = "Logged in as "
+              = 'Logged in as '
               = link_to current_user.name, current_user
-              = " | "
+              = ' | '
             span
               = link_to 'Log out', logout_path, method: :delete
           - else
             span
               = link_to 'Log in', login_path
-              =" | "
+              = ' | '
             span
               = link_to 'Sign up', new_user_path
