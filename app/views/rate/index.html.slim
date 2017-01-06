@@ -1,22 +1,23 @@
-#select_categories
-  = select_tag :categories, content_tag(:option, 'Select category', value: "0") + options_from_collection_for_select(@categories, :id, :name, include_blank: 'Select category')
+.row
+  #select-categories.col-md-6
+    .form-group
+      h3 Choose category
+      = select_tag :categories, content_tag(:option, 'Select category', value: "0") + options_from_collection_for_select(@categories, :id, :name, include_blank: 'Select category'),  class: 'form-control'
+  #show-info.col-md-6
+    button.btn.btn-default Show info
+.row
+  #images-slide.col-md-6
+    #myCarousel.myCarousel.carousel.slide  data-interval="false"
 
+      .carousel-inner role="listbox"
 
-#myCarousel.myCarousel.carousel.slide  data-interval="false"
-  ol.carousel-indicators
-    li.active data-target="#myCarousel" data-slide-to="0"
-    li data-target="#myCarousel" data-slide-to="1"
-    li data-target="#myCarousel" data-slide-to="2"
-    li data-target="#myCarousel" data-slide-to="3"
+      a.left.carousel-control href="#myCarousel" role="button" data-slide="prev"
+        span.arrow-container aria-hidden="true"
+          i.fa.fa-arrow-left.arrow
+        span.sr-only Previous
+      a.right.carousel-control href="#myCarousel" role="button" data-slide="next"
+        span.arrow-container aria-hidden="true"
+          i.fa.fa-arrow-right.arrow
+        span.sr-only Next
 
-  .carousel-inner role="listbox"
-
-
-  a.left.carousel-control href="#myCarousel" role="button" data-slide="prev"
-    span.arrow-container aria-hidden="true"
-      i.fa.fa-arrow-left.arrow
-    span.sr-only Previous
-  a.right.carousel-control href="#myCarousel" role="button" data-slide="next"
-    span.arrow-container aria-hidden="true"
-      i.fa.fa-arrow-right.arrow
-    span.sr-only Next
+  #images-info.col-md-6

@@ -47,7 +47,7 @@ Image.create!(
         {file: '7.jpg', category_id: 1},
         {file: '8.jpg', category_id: 1},
         {file: '9.jpg', category_id: 1},
-        {file: '10.jpg', category_id: 1},
+        {file: '10.png', category_id: 1},
         {file: '11.jpg', category_id: 1},
         {file: '12.png', category_id: 1},
         {file: '13.jpg', category_id: 1}

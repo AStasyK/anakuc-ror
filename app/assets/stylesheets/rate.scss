@@ -1,6 +1,20 @@
 // Place all the styles related to the rate controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#select-categories {
+  margin-bottom: 20px;
+}
+.form-group {
+  width: 200px;
+}
+#show-info {
+  margin-bottom: 20px;
+  padding-top: 55px;
+}
+#images-slide, #images-info {
+  width:50%;
+  margin:0;
+}
 .myCarousel {
   width: 500px;
   margin: 0 auto;
@@ -15,6 +29,7 @@
 }
 .arrow-container {
   position: relative;
+
 }
 .arrow {
   position: absolute;

@@ -32,7 +32,9 @@ a {
     background-color: #000;
   }
 }
-
+a.btn:visited {
+  color: #fff;
+}
 th {
   padding-bottom: 5px;
 }

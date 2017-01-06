@@ -10,6 +10,12 @@ class ImagesController < ApplicationController
   # GET /images/1
   # GET /images/1.json
   def show
+    category_name = @image.category.name.downcase.singularize.to_sym
+    @object = @image.send category_name
+    respond_to do |format|
+      format.html { redirect_to rate_path }
+      format.json { render json: @object }
+    end
   end
 
   # GET /images/new
