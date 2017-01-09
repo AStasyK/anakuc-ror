@@ -28,6 +28,10 @@ body {
     /* Margin bottom by footer height */
     /*margin-bottom: 60px;*/
 }
+nav.navbar-default {
+    background: #ddbbff;
+    color: #333;
+}
 .navbar-nav {
     min-height: 50px;
 }

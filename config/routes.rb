@@ -5,9 +5,10 @@ Rails.application.routes.draw do
 
   get 'rate' => 'rate#index'
 
-  get 'rate/select'
+  #get 'rate/select'
 
   #root to: 'rate#index'
+  post '/rate/(:id)' => 'rate#select'
   get '/rate/(:id)' => 'rate#select'
 
   resources :values

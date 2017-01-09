@@ -23,22 +23,20 @@ ActiveRecord::Schema.define(version: 20161229191654) do
 
   create_table "games", force: :cascade do |t|
     t.string   "name",        limit: 100
-    t.integer  "image_id"
+    t.integer  "category_id"
     t.string   "genre",       limit: 50
     t.integer  "year"
     t.string   "company",     limit: 50
-    t.integer  "category_id"
+    t.integer  "image_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.index ["category_id"], name: "index_games_on_category_id", using: :btree
-    t.index ["image_id"], name: "index_games_on_image_id", using: :btree
   end
 
   create_table "games_users", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "game_id"
-    t.index ["game_id"], name: "index_games_users_on_game_id", using: :btree
-    t.index ["user_id"], name: "index_games_users_on_user_id", using: :btree
+    t.integer "user_id", null: false
+    t.integer "game_id", null: false
+    t.index ["game_id", "user_id"], name: "index_games_users_on_game_id_and_user_id", using: :btree
+    t.index ["user_id", "game_id"], name: "index_games_users_on_user_id_and_game_id", using: :btree
   end
 
   create_table "gaming_systems", force: :cascade do |t|
@@ -51,10 +49,9 @@ ActiveRecord::Schema.define(version: 20161229191654) do
   create_table "images", force: :cascade do |t|
     t.string   "file"
     t.float    "ave_value"
-    t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["category_id"], name: "index_images_on_category_id", using: :btree
+    t.integer  "category_id"
   end
 
   create_table "platforms", force: :cascade do |t|
@@ -82,18 +79,15 @@ ActiveRecord::Schema.define(version: 20161229191654) do
     t.datetime "updated_at",                  null: false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
   end
 
   create_table "values", force: :cascade do |t|
-    t.integer  "value"
     t.integer  "user_id"
     t.integer  "image_id"
+    t.integer  "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["image_id"], name: "index_values_on_image_id", using: :btree
-    t.index ["user_id"], name: "index_values_on_user_id", using: :btree
   end
 
 end

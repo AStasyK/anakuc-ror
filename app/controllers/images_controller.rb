@@ -11,10 +11,12 @@ class ImagesController < ApplicationController
   # GET /images/1.json
   def show
     category_name = @image.category.name.downcase.singularize.to_sym
-    @object = @image.send category_name
+    to_exclude = [ 'id', 'image_id', 'category_id', 'created_at', 'updated_at' ]
+    @obj_attr = @image.send(category_name).attributes
+    @obj_attr.reject! { |key, value| to_exclude.include? key }
     respond_to do |format|
       format.html { redirect_to rate_path }
-      format.json { render json: @object }
+      format.json { render json: @obj_attr }
     end
   end
 

@@ -58,6 +58,7 @@ gem 'pg'
 
 gem 'activerecord-reset-pk-sequence'
 gem 'rspec-rails'
+gem 'js-routes'
 
 group :production do
   gem 'rails_12factor'
