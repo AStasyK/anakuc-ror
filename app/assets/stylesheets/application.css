@@ -35,6 +35,10 @@ nav.navbar-default {
 .navbar-nav {
     min-height: 50px;
 }
+.navbar-brand a:hover {
+    text-decoration: none;
+    background: inherit;
+}
 .logged .gravatar{
     height: 50px;
 }

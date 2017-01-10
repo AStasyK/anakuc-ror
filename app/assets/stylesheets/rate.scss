@@ -7,17 +7,25 @@
 .form-group {
   width: 200px;
 }
-#show-info {
+#show-info, #show-rate {
   margin-bottom: 20px;
   padding-top: 55px;
 }
-#images-slide, #images-info {
+#images-slide {
   width:50%;
   margin:0;
 }
-.myCarousel {
+#images-info, #rate-info {
+  width:25%;
+  margin:0;
+}
+#myCarousel {
+  display: none;
   width: 500px;
   margin: 0 auto;
+}
+#show-info, #show-rate, #rate-info {
+  display: none;
 }
 .carousel-inner {
   padding-left: 75px;
@@ -29,7 +37,6 @@
 }
 .arrow-container {
   position: relative;
-
 }
 .arrow {
   position: absolute;
