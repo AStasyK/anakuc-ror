@@ -42,3 +42,9 @@ $ ->
     $('#ave-rate').empty()
   $('.carousel-control').click clear
   clear $('#images-info')
+
+  $('input[type="radio"]').click (e) ->
+    $('input[type="radio"]').removeClass('checked')
+    $(this).addClass('checked')
+
+

@@ -24,6 +24,7 @@ class ValuesController < ApplicationController
   # POST /values
   # POST /values.json
   def create
+
     @value = Value.new(value_params)
 
     respond_to do |format|

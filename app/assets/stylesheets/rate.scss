@@ -43,3 +43,19 @@
   top: 150px;
   left: 0;
 }
+.rate-label {
+  margin-right: 5px;
+}
+.rate-label > input{ /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+.rate-label > input + .star { /* IMAGE STYLES */
+  color: #fc0;
+  font-size: 3em;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.rate-label > input.checked + .star { /* (RADIO CHECKED) IMAGE STYLES */
+  color: #ff0;
+}
