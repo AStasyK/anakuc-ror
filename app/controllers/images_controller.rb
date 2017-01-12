@@ -1,17 +1,12 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: [:show, :edit, :update, :destroy]
+  before_action :set_image, only: [:show, :edit, :rate, :destroy]
 
-  # GET /images
-  # GET /images.json
-  def index
-    @images = Image.all
-  end
 
   # GET /images/1
   # GET /images/1.json
   def show
     category_name = @image.category.name.downcase.singularize.to_sym
-    to_exclude = [ 'id', 'image_id', 'category_id', 'created_at', 'updated_at' ]
+    to_exclude = ['id', 'image_id', 'category_id', 'created_at', 'updated_at']
     @obj_attr = @image.send(category_name).attributes
     @obj_attr.reject! { |key, value| to_exclude.include? key }
     respond_to do |format|
@@ -47,10 +42,12 @@ class ImagesController < ApplicationController
 
   # PATCH/PUT /images/1
   # PATCH/PUT /images/1.json
-  def update
+  def rate
+    #@image = Image.find(params['id'])
+    @image.ave_value = @image.values.average :value
     respond_to do |format|
-      if @image.update(image_params)
-        format.html { redirect_to @image, notice: 'Image was successfully updated.' }
+      if @image.save
+        format.html { redirect_to rate_path, notice: 'Rate was successfully created.' }
         format.json { render :show, status: :ok, location: @image }
       else
         format.html { render :edit }
@@ -76,7 +73,5 @@ class ImagesController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def image_params
-      params.require(:image).permit(:file, :ave_value, :category_id)
-    end
+
 end

@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   get '/rate/(:id)' => 'rate#select'
 
   resources :values, only: [:new, :create]
-  resources :images
+  resources :images  do
+    match :rate, via: :get, on: :member #-> url.com/images/:id/rate
+  end
   resources :games
   resources :platforms
   resources :categories

@@ -23,6 +23,7 @@ $ ->
         $('#rate-info').show()
         aveVal = $($('.item.active')[0]).attr('data-value')
         if aveVal != 'null'
+          aveVal = parseFloat(aveVal).toFixed(2)
           $('#ave-rate').html("Average value: #{aveVal}")
         else
           $('#ave-rate').html('Nobody has submitted a rate yet')
