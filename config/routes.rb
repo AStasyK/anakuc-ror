@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new', as: 'login'
   delete '/logout' => 'sessions#destroy', as: 'logout'
 
+
+
   get 'rate' => 'rate#index'
 
   #get 'rate/select'
@@ -11,7 +13,7 @@ Rails.application.routes.draw do
   post '/rate/(:id)' => 'rate#select'
   get '/rate/(:id)' => 'rate#select'
 
-  resources :values
+  resources :values, only: [:new, :create]
   resources :images
   resources :games
   resources :platforms

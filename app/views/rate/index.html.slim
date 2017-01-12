@@ -28,23 +28,23 @@
   #rate-info.col-md-3
     #ave-rate
     #choose-rate
-      = form_for(:values, url: /values/) do |f|
-        = f.label :star_1_1, class: 'rate-label'
-          = f.radio_button :star_1, '1'
+      = form_for(:values, url: values_path) do |f|
+        = f.label :value_1, class: 'rate-label'
+          = f.radio_button :value, '1'
           = fa_icon 'star', class: 'star fa-3', 'area-hidden' => 'true'
-        = f.label :star_2_2, class: 'rate-label'
-          = f.radio_button :star_2, '2'
+        = f.label :value_2, class: 'rate-label'
+          = f.radio_button :value, '2'
           = fa_icon 'star', class: 'star fa-3', 'area-hidden' => 'true'
-        = f.label :star_3_3, class: 'rate-label'
-          = f.radio_button :star_3, '3'
+        = f.label :value_3, class: 'rate-label'
+          = f.radio_button :value, '3'
           = fa_icon 'star', class: 'star fa-3', 'area-hidden' => 'true'
-        = f.label :star_4_4, class: 'rate-label'
-          = f.radio_button :star_4, '4'
+        = f.label :value_4, class: 'rate-label'
+          = f.radio_button :value, '4'
           = fa_icon 'star', class: 'star fa-3', 'area-hidden' => 'true'
-        = f.label :star_5_5, class: 'rate-label'
-          = f.radio_button :star_5, '5'
+        = f.label :value_5, class: 'rate-label'
+          = f.radio_button :value, '5'
           = fa_icon 'star', class: 'star fa-3', 'area-hidden' => 'true'
-
+        = f.hidden_field :image_id
         .actions
           = f.submit 'Save', class: 'btn btn-large btn-primary'
 

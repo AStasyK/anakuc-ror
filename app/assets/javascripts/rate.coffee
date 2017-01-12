@@ -31,7 +31,9 @@ $ ->
         box.append "<tr><th>Characteristic</th><th>Value</th></tr>"
         for own key,value of data
           box.append "<tr><td class='info-item'>#{key[0].toUpperCase() + key[1..-1].toLowerCase()}</td><td>#{value}</td><tr>"
+
       dataType: 'json'
+    $('#values_image_id').val($($('.item.active')[0]).attr('data-id'))
   $('#show-info button').click show_info
   show_info $('.active')
 

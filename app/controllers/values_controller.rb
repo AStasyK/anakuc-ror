@@ -1,5 +1,5 @@
 class ValuesController < ApplicationController
-  before_action :set_value, only: [:show, :edit, :update, :destroy]
+  before_action :set_value, only: [:show]
 
   # GET /values
   # GET /values.json
@@ -24,15 +24,17 @@ class ValuesController < ApplicationController
   # POST /values
   # POST /values.json
   def create
-
-    @value = Value.new(value_params)
+    @parameters = params[:values]
+    @value = Value.new(user_id: current_user.id)
+    @value.value = params[:values][:value]
+    @value.image_id = params[:values][:image_id]
 
     respond_to do |format|
       if @value.save
-        format.html { redirect_to @value, notice: 'Value was successfully created.' }
+        format.html { redirect_to rate_path, notice: 'Value was successfully created.' }
         format.json { render :show, status: :created, location: @value }
       else
-        format.html { render :new }
+        format.html { render :new, @value.errors }
         format.json { render json: @value.errors, status: :unprocessable_entity }
       end
     end
@@ -40,27 +42,7 @@ class ValuesController < ApplicationController
 
   # PATCH/PUT /values/1
   # PATCH/PUT /values/1.json
-  def update
-    respond_to do |format|
-      if @value.update(value_params)
-        format.html { redirect_to @value, notice: 'Value was successfully updated.' }
-        format.json { render :show, status: :ok, location: @value }
-      else
-        format.html { render :edit }
-        format.json { render json: @value.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
-  # DELETE /values/1
-  # DELETE /values/1.json
-  def destroy
-    @value.destroy
-    respond_to do |format|
-      format.html { redirect_to values_url, notice: 'Value was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -69,7 +51,5 @@ class ValuesController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def value_params
-      params.require(:value).permit(:user_id, :image_id, :value)
-    end
+
 end
