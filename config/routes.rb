@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   resources :platforms
   resources :categories
   resources :users
+  resources :relationships do
+    match :follow, via: :get, on: :member
+  end
 
   resources :sessions, only: [:new, :create, :destroy]
 

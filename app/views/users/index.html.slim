@@ -17,7 +17,7 @@ table.table.table-striped
         td
           = link_to user_path(user), class: 'btn btn-xs', title: "#{ t('.show', default: t('helpers.links.show')) }" do
             = fa_icon 'info'
-          = link_to edit_user_path(user), class: 'btn btn-xs', title: "Follow"
+          = link_to follow_relationship_path(user), class: 'btn btn-xs', title: "Follow"
             = fa_icon 'plus'
 
 
