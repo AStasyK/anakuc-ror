@@ -5,13 +5,13 @@ class RelationshipsController < ApplicationController
     @relationship.followed_id = @user.id
     @relationship.follower_id = current_user.id
     respond_to do |format|
-      if @relationship.save
-        format.html { redirect_to user_path(@user), notice: 'You have followed the user.' }
-        format.json { head :no_content }
-      else
-        format.html { redirect_to @relationship.errors, notice: 'Fail' }
-        format.json { head :no_content }
-      end
+        if @relationship.save
+          format.html { redirect_to user_path(current_user), notice: 'You have followed the user.' }
+          format.json { head :no_content }
+        else
+          format.html { redirect_to users_path, notice: 'Fail' }
+          format.json { head :no_content }
+        end
     end
   end
   def destroy

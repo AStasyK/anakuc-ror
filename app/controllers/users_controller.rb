@@ -11,6 +11,12 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    #@followers_ids = Relationship.where("followed_id = #{@user.id}").pluck(:follower_id)
+    #@followers = {}
+    #@followers_ids.each {|id| @followers << User.find(id)}
+    @followeds = @user.followeds
+    #@followers_sample = @followers.count > 5 ? @followers.sample(4) : @followers
+    @followeds_sample = @followeds.count > 5 ? @followeds.sample(4) : @followeds
   end
 
   # GET /users/new
@@ -30,11 +36,11 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         log_in @user
-        flash.now[:notice] = "Welcome!"
+        flash.now[:notice] = 'Welcome!'
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
-        flash.now[:alert] = "Something went wrong during registration process"
+        flash.now[:alert] = 'Something went wrong during registration process'
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -66,13 +72,13 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:name, :email, :password)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:name, :email, :password)
+  end
 end

@@ -8,7 +8,7 @@ class ImagesController < ApplicationController
     category_name = @image.category.name.downcase.singularize.to_sym
     to_exclude = ['id', 'image_id', 'category_id', 'created_at', 'updated_at']
     @obj_attr = @image.send(category_name).attributes
-    @obj_attr.reject! { |key, value| to_exclude.include? key }
+    @obj_attr.reject! { |key, _| to_exclude.include? key }
     respond_to do |format|
       format.html { redirect_to rate_path }
       format.json { render json: @obj_attr }
@@ -44,7 +44,7 @@ class ImagesController < ApplicationController
   # PATCH/PUT /images/1.json
   def rate
     #@image = Image.find(params['id'])
-    @image.ave_value = @image.values.average :value
+    @image.ave_value = (@image.values.sum :value) / (@image.values.count)
     respond_to do |format|
       if @image.save
         format.html { redirect_to rate_path, notice: 'Rate was successfully created.' }

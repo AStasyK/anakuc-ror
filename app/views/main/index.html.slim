@@ -1,9 +1,14 @@
 .center.jumbotron
   h1 Welcome to the Experteese
-  h2 Ruby on Rails sample application.
 
   - if logged_in?
     = link_to 'Proceed to work!', rate_url, class: 'btn btn-lg btn-success'
 
   - else
     = link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary'
+
+- if logged_in?
+  br
+  .center.jumbotron
+    h3 Find friends
+    = link_to 'Find!', users_path, class: 'btn btn-lg btn-success'

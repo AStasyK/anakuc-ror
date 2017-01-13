@@ -1,20 +1,38 @@
 - model_class = User
 div class="page-header"
-  h1=t '.title', default: model_class.model_name.human.titleize
+  h1= t '.title', default: model_class.model_name.human.titleize
 
-.fieldset
-  dl
-      dt.label.label-default= model_class.human_attribute_name(:name)
-      dd
-        pre.prettyprint= @user.name
-      dt.label.label-default= model_class.human_attribute_name(:email)
-      dd
-        pre.prettyprint= @user.email
+.row
+  #user-info.col-md-6
+    .fieldset
+      dl
+        dt.label.label-default= model_class.human_attribute_name(:name)
+        dd
+          pre.prettyprint= @user.name
+        dt.label.label-default= model_class.human_attribute_name(:email)
+        dd
+          pre.prettyprint= @user.email
 
-.form-group
-  = link_to t('.back', default: t("helpers.links.back")), users_path, class: 'btn btn-primary'
-  '
-  - if current_user.id == @user.id
-    = link_to t('.edit', default: t("helpers.links.edit")), edit_user_path(@user), class: 'btn btn-default'
-    '
-    = link_to t('.destroy', default: t("helpers.links.destroy")), user_path(@user), method: "delete", data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger'
+    .form-group
+      = link_to t('.back', default: t("helpers.links.back")), users_path, class: 'btn btn-primary'
+      '
+      - if current_user.id == @user.id
+        = link_to t('.edit', default: t("helpers.links.edit")), edit_user_path(@user), class: 'btn btn-default'
+        '
+        = link_to t('.destroy', default: t("helpers.links.destroy")), user_path(@user), method: "delete", data: {confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?'))}, class: 'btn btn-danger'
+
+  #subscriptions.col-md-6
+    .row
+      #following.col-md-6
+        h3 Following
+        .count
+          p
+            = @followeds.count
+        .sample
+          ul
+            - @followeds_sample.each do |user|
+              li
+                = gravatar_for user
+                = link_to user.name, user_path(user)
+            li
+              = link_to 'Check all', 'javascript:;', id: 'show_followeds'

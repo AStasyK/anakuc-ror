@@ -7,9 +7,10 @@ class User < ApplicationRecord
   has_secure_password
 
   #connections
-  has_many :relationships
-  has_many :followers, through: :relationships, source: :user, foreign_key: :follower_id
-  has_many :followeds, through: :relationships, source: :user, foreign_key: :followed_id
+  has_many :relationships, foreign_key: :follower_id
+  has_many :followers, through: :relationships, source: :follower
+  has_many :reverse_relationships, class_name: 'Relationship', foreign_key: :followed_id
+  has_many :followeds, through: :relationships, source: :followed
   has_and_belongs_to_many :games
 
   #validations
