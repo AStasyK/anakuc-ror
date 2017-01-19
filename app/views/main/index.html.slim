@@ -1,14 +1,12 @@
-.center.jumbotron
-  h1 Welcome to the Experteese
-
-  - if logged_in?
-    = link_to 'Proceed to work!', rate_url, class: 'btn btn-lg btn-success'
-
-  - else
+- unless logged_in?
+  .welcome
+    h1 Welcome to our site!
     = link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary'
-
-- if logged_in?
-  br
-  .center.jumbotron
-    h3 Find friends
-    = link_to 'Find!', users_path, class: 'btn btn-lg btn-success'
+- else
+  .slider.single-item
+    .welcome
+      h1 Welcome to our site!
+      = link_to 'Rate', rate_url, class: 'btn btn-lg btn-success'
+    .friends
+      h1 Find friends
+      = link_to 'Find', users_path, class: 'btn btn-lg btn-success'

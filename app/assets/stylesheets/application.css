@@ -11,10 +11,14 @@
  * It is generally better to create a new file per style scope.
  *
 
+
  *= require_tree .
  *= require _bootstrap
- *= require_self
  *= require font-awesome
+ *= require slick
+ *= require slick-theme
+ *= require_self
+
  */
 
 html {
@@ -25,15 +29,34 @@ html {
 body {
     margin: 0;
     padding: 0;
+    background-image: url('Elegant_Background-13.jpg');
     /* Margin bottom by footer height */
     /*margin-bottom: 60px;*/
+    color: #fff;
+}
+.box {
+    width: 90%;
+    margin: 0 auto;
+    min-height: 700px;
+    padding-top: 20px;
 }
 nav.navbar-default {
-    background: #ddbbff;
-    color: #333;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 0;
+    border: 0;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
 }
 .navbar-nav {
     min-height: 50px;
+}
+.navbar-default .navbar-header .navbar-brand a {
+    color: #55AE55;
+}
+.navbar-default .navbar-header .navbar-brand a:visited {
+    color: #55AE55;
 }
 .navbar-brand a:hover {
     text-decoration: none;

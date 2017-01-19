@@ -1,3 +1,42 @@
 // Place all the styles related to the main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-image: url('Elegant_Background-13.jpg');
+  /* Margin bottom by footer height */
+  /*margin-bottom: 60px;*/
+}
+.slick-list {
+  overflow: hidden;
+  clear: both !important;
+  margin: 0;
+  padding: 0;
+}
+/*
+.slick-cloned {
+  display: none !important;
+}
+*/
+.slider.slick-slider {
+  width: 1000px;
+  margin:0 auto;
+}
+.slider.slick-slider .slick-list{
+  margin: 0 auto;
+  width: 900px !important;
+  height: 350px !important;
+}
+.slider.slick-slider .slick-track {
+  height: 350px !important;
+}
+.slider.slick-slider .slick-slide {
+  width: 900px !important;
+  margin: 0;
+  //clear: both !important;
+}
+
+.welcome, .friends {
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+}

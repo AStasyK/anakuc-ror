@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   #root to: 'rate#index'
   post '/rate/(:id)' => 'rate#select'
-  get '/rate/(:id)' => 'rate#select'
+  get '/rate/(:id)' => 'rate#from_category'
 
   resources :values, only: [:new, :create]
   resources :images  do

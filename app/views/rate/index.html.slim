@@ -2,7 +2,7 @@
   #select-categories.col-md-6
     .form-group
       h3 Choose category
-      = select_tag :categories, content_tag(:option, 'Select category', value: "0") + options_from_collection_for_select(@categories, :id, :name, include_blank: 'Select category'),  class: 'form-control select-box'
+      = select_tag :categories, content_tag(:option, 'Select category', value: "0") + options_from_collection_for_select(@categories, :id, :name, include_blank: 'Select category', remote: true),  class: 'form-control select-box'
   #show-info.col-md-3
     button.btn.btn-default Show info
   #show-rate.col-md-3
@@ -10,43 +10,14 @@
 
 .row
   #images-slide.col-md-6
-    #myCarousel.myCarousel.carousel.slide  data-interval="false"
+    #carousel.carousel
+      = render partial: 'rate/images_grid', locals: {images: @images}
 
-      .carousel-inner role="listbox"
-
-      a.left.carousel-control href="#myCarousel" role="button" data-slide="prev"
-        span.arrow-container aria-hidden="true"
-          i.fa.fa-arrow-left.arrow
-        span.sr-only Previous
-      a.right.carousel-control href="#myCarousel" role="button" data-slide="next"
-        span.arrow-container aria-hidden="true"
-          i.fa.fa-arrow-right.arrow
-        span.sr-only Next
-
-  #images-info.col-md-3
-    table.table
-  #rate-info.col-md-3
-    #ave-rate
-    #choose-rate
-      = form_for(:values, url: values_path) do |f|
-        = f.label :value_1, class: 'rate-label'
-          = f.radio_button :value, '1'
-          = fa_icon 'star', class: 'star fa-3', 'area-hidden' => 'true'
-        = f.label :value_2, class: 'rate-label'
-          = f.radio_button :value, '2'
-          = fa_icon 'star', class: 'star fa-3', 'area-hidden' => 'true'
-        = f.label :value_3, class: 'rate-label'
-          = f.radio_button :value, '3'
-          = fa_icon 'star', class: 'star fa-3', 'area-hidden' => 'true'
-        = f.label :value_4, class: 'rate-label'
-          = f.radio_button :value, '4'
-          = fa_icon 'star', class: 'star fa-3', 'area-hidden' => 'true'
-        = f.label :value_5, class: 'rate-label'
-          = f.radio_button :value, '5'
-          = fa_icon 'star', class: 'star fa-3', 'area-hidden' => 'true'
-        = f.hidden_field :image_id
-        .actions
-          = f.submit 'Save', class: 'btn btn-large btn-primary'
+  #images-info.col-md-6
+    #images-attr
+      = render partial: 'rate/info_grid', locals: {object: @object}
+    #rate-info
+      = render partial: 'rate/rate_grid'
 
 
 

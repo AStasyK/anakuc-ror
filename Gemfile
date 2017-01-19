@@ -53,6 +53,7 @@ gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'font-awesome-rails'
+gem "jquery-slick-rails"
 
 gem 'pg'
 

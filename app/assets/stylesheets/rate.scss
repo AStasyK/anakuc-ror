@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #select-categories {
   margin-bottom: 20px;
+  margin-left: 50px;
 }
 .form-group {
   width: 200px;
@@ -19,12 +20,13 @@
   width:25%;
   margin:0;
 }
-#myCarousel {
+#carousel {
   display: none;
   width: 500px;
+  min-height:400px;
   margin: 0 auto;
 }
-#show-info, #show-rate, #rate-info {
+#show-info, #show-rate, #rate-info, #images-attr {
   display: none;
 }
 .carousel-inner {
@@ -58,4 +60,15 @@
 }
 .rate-label > input.checked + .star { /* (RADIO CHECKED) IMAGE STYLES */
   color: #ff0;
+}
+.slick-list {
+  width: 400px;
+  margin: 0 auto!important;
+}
+.slick-slider{
+  text-align: center;
+  width: 500px;
+}
+.slick-slide {
+  margin: 0 auto;
 }
