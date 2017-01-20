@@ -3,9 +3,9 @@ table
     th Characteristics
     th Value
   - to_exclude = %w(id image_id category_id created_at updated_at)
-  - if object
-      - object.each do |key, value|
-        - unless to_exclude.include? key
-          tr
-            td #{key.titleize}
-            td #{value}
+  -if @object
+    - @object.attributes.each do |key, value|
+      - unless to_exclude.include? key
+        tr
+          td #{key.titleize}
+          td #{value}

@@ -1,13 +1,11 @@
 $(document).ready(function(){
     var imageBox = $('#carousel');
+    imageBox.show();
     imageBox.empty();
     imageBox.html("<%= j render partial: 'rate/images', locals: { images: @selected } %>");
-    imageBox.show().slick({
+    imageBox.slick({
         dots: true,
         variableWidth: true,
         draggable: false
     });
-    //imageBox.on('afterChange', function(event, slick, currentSlide){
-    //  $.get({"/images/" + $(currentSlide).attr('data-id')});
-    //});
 });

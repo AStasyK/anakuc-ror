@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   #root to: 'rate#index'
   post '/rate/(:id)' => 'rate#select'
   get '/rate/(:id)' => 'rate#from_category'
+  get '/info/(:id)' => 'rate#show_info'
 
   resources :values, only: [:new, :create]
   resources :images  do

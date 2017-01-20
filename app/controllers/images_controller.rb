@@ -2,16 +2,9 @@ class ImagesController < ApplicationController
   before_action :set_image, only: [:show, :rate]
 
 
-  # GET /images/1
-  # GET /images/1.json
+  #get info about object from particular category
   def show
-    category_name = @image.category.name.downcase.singularize.to_sym
 
-    @object = @image.send(category_name)
-
-    respond_to do |format|
-      format.js { RateController.render 'rate/show_info.js.erb', locals: { object: @object } }
-    end
   end
 
   def rate

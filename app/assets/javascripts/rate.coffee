@@ -12,6 +12,5 @@ $ ->
 
 
   $('#carousel').on 'afterChange', (event, slick, currentSlide) ->
-    console.log($('.slick-current')[0])
     $.get
-      url: "/images/#{$($('.slick-current')[0]).attr('data-id')}"
+      url: "/info/#{$($('.slick-current')[0]).attr('data-id')}"
