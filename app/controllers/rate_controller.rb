@@ -1,7 +1,7 @@
 class RateController < ApplicationController
   def index
     @categories = Category.all
-    @images = Image.all
+    #@images = Image.all
   end
 
   #current action
@@ -15,12 +15,10 @@ class RateController < ApplicationController
   def show_info
     @image = Image.find(params[:id])
     category_name = @image.category.name.downcase.singularize.to_sym  # -> :game or :platform
-
     @object = @image.send(category_name)  # -> called @image.game or @image.platform  -> got specific book or platform
-
     respond_to do |format|
-      format.html
       format.js
     end
+
   end
 end

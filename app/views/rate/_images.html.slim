@@ -1,3 +1,4 @@
-- images.each do |image|
-  .item data-id = image.id data-value = "#{image.ave_value.to_f.round(2)}"
-    = image_tag("pictures/#{image.file}", width: '400')
+- if @selected
+  - @selected.each do |image|
+    .item data-id = image.id data-value = "#{image.ave_value.to_f.round(2)}"
+      = image_tag("pictures/#{image.file}", width: '400')

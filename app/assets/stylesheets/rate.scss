@@ -15,10 +15,17 @@
 #images-slide {
   width:50%;
   margin:0;
+
 }
-#images-info, #rate-info {
-  width:25%;
-  margin:0;
+#images-info {
+  text-align: center;
+}
+#images-attr table{
+  border: 1px solid #666;
+  margin: 0 auto;
+}
+#images-attr, #ave-rate{
+  margin-bottom: 20px;
 }
 #carousel {
   display: none;
@@ -26,7 +33,7 @@
   min-height:400px;
   margin: 0 auto;
 }
-#show-info, #show-rate, #rate-info, #images-attr {
+#images-info {
   display: none;
 }
 .carousel-inner {
@@ -71,4 +78,7 @@
 }
 .slick-slide {
   margin: 0 auto;
+}
+td, th {
+  padding: 10px;
 }

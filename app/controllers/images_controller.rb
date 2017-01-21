@@ -15,7 +15,7 @@ class ImagesController < ApplicationController
         format.html { redirect_to rate_path, notice: 'Rate was successfully created.' }
         format.json { render :show, status: :ok, location: @image }
       else
-        format.html { render :edit }
+        format.html { render rate_path, alert: 'Something has gone wrong.' }
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end

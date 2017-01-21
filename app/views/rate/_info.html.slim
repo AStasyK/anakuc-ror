@@ -1,11 +1,13 @@
-table
-  tr
-    th Characteristics
-    th Value
-  - to_exclude = %w(id image_id category_id created_at updated_at)
-  -if @object
-    - @object.attributes.each do |key, value|
-      - unless to_exclude.include? key
-        tr
-          td #{key.titleize}
-          td #{value}
+table.table.table-striped
+  thead
+    tr
+      th Characteristics
+      th Value
+  tbody
+    - to_exclude = %w(id image_id category_id created_at updated_at)
+    - if @object
+      - @object.attributes.each do |key, value|
+        - unless to_exclude.include? key
+          tr
+            td #{key.titleize}
+            td #{value}

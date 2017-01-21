@@ -3,15 +3,11 @@
     .form-group
       h3 Choose category
       = select_tag :categories, content_tag(:option, 'Select category', value: "0") + options_from_collection_for_select(@categories, :id, :name, include_blank: 'Select category', remote: true),  class: 'form-control select-box'
-  #show-info.col-md-3
-    button.btn.btn-default Show info
-  #show-rate.col-md-3
-    h4 Rate
 
 .row
   #images-slide.col-md-6
-    #carousel.carousel
-      = render partial: 'rate/images_grid', locals: {images: @images}
+    #carousel
+      = render partial: 'rate/images'
 
   #images-info.col-md-6
     #images-attr

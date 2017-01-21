@@ -1,21 +1,19 @@
 $(document).ready(function(){
-    var infoBox = $('#images-attr');
-    var rateBox = $('#rate-info');
-    infoBox.empty();
-    rateBox.empty();
+    var attrBox = $('#images-attr');
+    var infoBox = $('#images-info');
+    attrBox.empty();
 
     //**render image info and rate form
-    infoBox.html("<%= j render partial: 'rate/info' %>");
+    attrBox.html("<%= j render partial: 'rate/info' %>");
 
     infoBox.show();
-    rateBox.show();
 
     //**show current rate
-    var aveVal = $($('.slick-active')[0]).attr('data-value');
+    var aveVal = parseInt($($('.slick-active')[0]).attr('data-value'));
     var valBox = $('#ave-rate');
-    if(aveVal != 'null') {
+    if(!!aveVal && aveVal != null) {
         aveVal = parseFloat(aveVal).toFixed(2);
-        valBox.html('Average value:' + aveVal);
+        valBox.html('Average value: ' + aveVal);
     }
     else {
         valBox.html('Nobody has submitted a rate yet');

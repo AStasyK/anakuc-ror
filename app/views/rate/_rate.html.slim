@@ -1,5 +1,6 @@
 #ave-rate
 #choose-rate
+  h4 Share your oppinion
   = form_for(:values, url: values_path) do |f|
     = f.label :value_1, class: 'rate-label'
       = f.radio_button :value, '1'
@@ -17,5 +18,5 @@
       = f.radio_button :value, '5'
       = fa_icon 'star', class: 'star fa-3', 'area-hidden' => 'true'
     = f.hidden_field :image_id
-      .actions
-        = f.submit 'Save', class: 'btn btn-large btn-primary'
+    .actions
+      = f.submit 'Save', class: 'btn btn-large btn-primary'

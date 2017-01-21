@@ -1,8 +1,13 @@
 $(document).ready(function(){
     var imageBox = $('#carousel');
-    imageBox.show();
+    var infoBox = $('#images-info');
+    infoBox.hide();
+    if(imageBox.hasClass('slick-slider')) {
+        imageBox.slick('unslick');
+    }
     imageBox.empty();
-    imageBox.html("<%= j render partial: 'rate/images', locals: { images: @selected } %>");
+    imageBox.html("<%= j render partial: 'rate/images' %>");
+    imageBox.show();
     imageBox.slick({
         dots: true,
         variableWidth: true,
