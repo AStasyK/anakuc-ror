@@ -33,3 +33,20 @@ $ ->
   carousel.on 'afterChange', (event, slick, currentSlide) ->
     do getInfo
 
+  rate_form = $('#rate-form')
+  rate_form.submit (event) ->
+    $.post
+      url: '/values'
+      data: rate_form.serialize()
+      success: (data) ->
+        aveVal = data.ave_value
+        aveVal = parseFloat(aveVal).toFixed(2)
+        $($('.slick-active')[0]).attr('data-value', aveVal)
+        $('#ave-rate').html("Average value: #{aveVal}")
+        $('.box').prepend('<div class="flash alert alert-success"><div class="container">Rate was successfully created</div></div>')
+
+        callback = -> $('.flash').slideUp()
+        setTimeout callback, 3000
+
+      dataType: 'json'
+   event.preventDefault()

@@ -9,13 +9,13 @@ class ImagesController < ApplicationController
 
   def rate
     #@image = Image.find(params['id'])
-    @image.ave_value = (@image.values.sum :value) / (@image.values.count)
+    @image.ave_value = @image.values.average(:value)
     respond_to do |format|
       if @image.save
-        format.html { redirect_to rate_path, notice: 'Rate was successfully created.' }
-        format.json { render :show, status: :ok, location: @image }
+        flash.now[:notice] = 'Rate was successfully created'
+        format.json { render json: @image, notice: 'Rate was successfully created', location: @image }
       else
-        format.html { render rate_path, alert: 'Something has gone wrong.' }
+        format.html { render rate_path, alert: 'Something has gone wrong or you have already shared your rate for this title.' }
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end

@@ -9,10 +9,10 @@ $(document).ready(function(){
     infoBox.show();
 
     //**show current rate
-    var aveVal = parseInt($($('.slick-active')[0]).attr('data-value'));
+    var aveVal =parseFloat($($('.slick-active')[0]).attr('data-value'));
     var valBox = $('#ave-rate');
     if(!!aveVal && aveVal != null) {
-        aveVal = parseFloat(aveVal).toFixed(2);
+        aveVal = aveVal.toFixed(2);
         valBox.html('Average value: ' + aveVal);
     }
     else {

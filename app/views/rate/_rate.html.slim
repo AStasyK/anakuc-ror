@@ -1,7 +1,7 @@
 #ave-rate
 #choose-rate
-  h4 Share your oppinion
-  = form_for(:values, url: values_path) do |f|
+  h4 Share your opinion
+  = form_for :values, url: values_path, remote: true, html: { id: 'rate-form' } do |f|
     = f.label :value_1, class: 'rate-label'
       = f.radio_button :value, '1'
       = fa_icon 'star', class: 'star fa-3', 'area-hidden' => 'true'

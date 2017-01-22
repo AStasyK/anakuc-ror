@@ -26,13 +26,13 @@ class ValuesController < ApplicationController
   def create
     @parameters = params[:values]
     @value = Value.new(user_id: current_user.id)
-    @value.value = params[:values][:value]
-    @value.image_id = params[:values][:image_id]
+    @value.value = @parameters[:value]
+    @value.image_id = @parameters[:image_id]
     @image = Image.find(@value.image_id)
     respond_to do |format|
       if @value.save
         format.html { redirect_to "/images/#{@image.id}/rate"}
-        format.json { redirect_to render :show, status: :created, location: @value }
+        #format.json { redirect_to render :show, status: :created, location: @value }
       else
         format.html { render :new, @value.errors }
         format.json { render json: @value.errors, status: :unprocessable_entity }
