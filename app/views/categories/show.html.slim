@@ -15,7 +15,10 @@ table.table.table-striped.categories
     - @objects.each do |object|
       tr
         td = object.name
-        td = object.image.ave_value.round(2)
+        - if object.image.ave_value
+          td = object.image.ave_value.round(2)
+        - else
+          td 0
 
 
 
