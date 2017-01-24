@@ -34,7 +34,7 @@ $ ->
     do getInfo
 
   rate_form = $('#rate-form')
-  $('input[type="submit"]').click (event) ->
+  $('#rate-form input[type="submit"]').click (event) ->
     event.preventDefault()
     $.post
       url: '/values'
