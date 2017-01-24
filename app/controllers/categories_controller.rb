@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:show]
 
   # GET /categories
   # GET /categories.json
@@ -7,6 +7,10 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
+  def show
+    model_name = @category.name.singularize.constantize  # -> :game or :platform
+    @objects = model_name.joins(:image).order('images.ave_value DESC')
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

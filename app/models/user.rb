@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :reverse_relationships, class_name: 'Relationship', foreign_key: :followed_id
   has_many :followeds, through: :relationships, source: :followed
   has_and_belongs_to_many :games
+  has_many :values
 
   #validations
   validates_presence_of :name, :email, :password

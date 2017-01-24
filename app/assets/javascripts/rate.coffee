@@ -34,7 +34,8 @@ $ ->
     do getInfo
 
   rate_form = $('#rate-form')
-  rate_form.submit (event) ->
+  $('input[type="submit"]').click (event) ->
+    event.preventDefault()
     $.post
       url: '/values'
       data: rate_form.serialize()
@@ -49,4 +50,4 @@ $ ->
         setTimeout callback, 3000
 
       dataType: 'json'
-   event.preventDefault()
+    false

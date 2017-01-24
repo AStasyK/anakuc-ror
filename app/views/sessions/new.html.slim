@@ -7,13 +7,12 @@ h1 Log in
     = form_for(:session, url: sessions_path) do |f|
       .field
         = f.label :email
-        = f.text_field :email
+        = f.text_field :email, class: 'form-control'
       .field
         = f.label :password
-        = f.password_field :password
+        = f.password_field :password, class: 'form-control'
       .actions
         = f.submit 'Log in', class: 'btn btn-large btn-primary'
-    p.sign_up_link
-      = 'Are you new here?'
-      br
-      = link_to 'Sign up', signup_path
+        .sign_up_link
+          = ' Are you new here? '
+          = link_to 'Sign up', signup_path,  class: 'btn btn-large btn-primary'

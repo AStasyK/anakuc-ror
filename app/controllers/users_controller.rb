@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @rates = Value.group(:user_id).count(:value)
   end
 
   # GET /users/1

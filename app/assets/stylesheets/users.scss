@@ -31,3 +31,10 @@ tr{
   background: rgba(255, 255, 255, 0.8);
   color: #000;
 }
+input[type="text"], input[type="password"]{
+  color: #111;
+  width: 500px;
+}
+#error_explanation{
+  color: #111;
+}

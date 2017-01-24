@@ -7,6 +7,7 @@ table.table.table-striped
       th= model_class.human_attribute_name(:id)
       th= model_class.human_attribute_name(:name)
       th= model_class.human_attribute_name(:email)
+      th Rate count
       th=t '.actions', default: t("helpers.actions")
   tbody
     - @users.each do |user|
@@ -14,12 +15,13 @@ table.table.table-striped
         td= user.id
         td= user.name
         td= user.email
+        - if @rates.keys.include? user.id
+          td= @rates[user.id]
+        - else
+          td 0
         td
           = link_to user_path(user), class: 'btn btn-xs', title: "#{ t('.show', default: t('helpers.links.show')) }" do
             = fa_icon 'info'
           - if user.id != current_user.id
             = link_to follow_relationship_path(user), class: 'btn btn-xs', title: "Follow"
               = fa_icon 'plus'
-
-
-= link_to t('.new', default: t("helpers.links.new")), new_user_path, class: 'btn btn-primary'

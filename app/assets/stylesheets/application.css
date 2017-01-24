@@ -50,6 +50,9 @@ nav.navbar-default {
 .navbar-default .navbar-nav > li > a {
     color: #fff;
 }
+.navbar-default .navbar-nav > li > a:hover {
+    color: #55AE55;
+}
 .navbar-nav {
     min-height: 50px;
 }
@@ -85,4 +88,8 @@ li .fa {
     width: 10px;
     margin-right: 10px;
     text-align: center;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+    background: #111;
+    color: #55AE55;
 }

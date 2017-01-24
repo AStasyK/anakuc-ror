@@ -24,6 +24,8 @@ header
           button.btn.btn-default(type="submit") Submit
         ul.nav.navbar-nav.navbar-right
           - if logged_in?
+            li =link_to 'Category ratings', categories_path
+            li =link_to 'Find friends', users_path
             li.logged
               = gravatar_for current_user
             li#fat-menu.dropdown
