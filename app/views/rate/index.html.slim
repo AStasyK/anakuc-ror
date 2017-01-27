@@ -3,6 +3,8 @@
     .form-group
       h3 Choose category
       = select_tag :categories, content_tag(:option, 'Select category', value: "0") + options_from_collection_for_select(@categories, :id, :name, include_blank: 'Select category', remote: true),  class: 'form-control select-box'
+  #fav-box.col-md-6
+    = render partial: 'rate/favourite'
 
 .row
   #images-slide.col-md-6
@@ -14,7 +16,3 @@
       = render partial: 'rate/info'
     #rate-info
       = render partial: 'rate/rate'
-
-
-
-

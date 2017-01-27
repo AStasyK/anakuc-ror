@@ -14,13 +14,16 @@ Rails.application.routes.draw do
   get '/rate/(:id)' => 'rate#from_category'
   get '/info/(:id)' => 'rate#show_info'
 
+  post '/favourites/(:id)' => 'favourite#create'
+
   resources :values, only: [:new, :create]
   resources :images  do
     match :rate, via: :get, on: :member #-> url.com/images/:id/rate
   end
   resources :games
+  resources :favourites,  only: [:destroy]
   resources :platforms
-  resources :categories
+  resources :categories, only: [:index, :show]
   resources :users
   resources :relationships do
     match :follow, via: :get, on: :member
