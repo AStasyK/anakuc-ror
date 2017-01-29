@@ -38,3 +38,18 @@ input[type="text"], input[type="password"]{
 #error_explanation{
   color: #111;
 }
+#subscriptions p{
+  color: #000;
+}
+.sample a, .sample a:visited{
+  color: #fff;
+}
+.sample a:hover{
+  text-decoration: none;
+  background: none;
+  color: #55AE55;
+}
+#favourites .category{
+  font-size:18px;
+  font-weight: bold;
+}

@@ -28,11 +28,37 @@ div class="page-header"
         .count
           p
             = @followeds.count
-        .sample
-          ul
-            - @followeds_sample.each do |user|
-              li
-                = gravatar_for user
-                = link_to user.name, user_path(user)
-            li
-              = link_to 'Check all', 'javascript:;', id: 'show_followeds'
+        - if @followeds
+          .sample
+            ul
+              - @followeds_sample.each do |user|
+                li
+                  = gravatar_for user
+                  = link_to user.name, user_path(user)
+              - if @followeds.count > 5
+                li
+                  = link_to 'Check all', 'javascript:;', id: 'show_followeds', class: 'btn btn-primary'
+      #followeds.col-md-6
+        h3 Followers
+        .count
+          p
+            = @followers.count
+        - if @followers
+          .sample
+            ul
+              - @followers_sample.each do |user|
+                li
+                  = gravatar_for user
+                  = link_to user.name, user_path(user)
+              - if @followers.count > 5
+                li
+                  = link_to 'Check all', 'javascript:;', id: 'show_followers', class: 'btn btn-primary'
+#favourites
+  - @categories.each do |category|
+    h4.category
+      = category[:name]
+    ul
+      - @objects.each do |object|
+        - if object.category_id == category[:id]
+          li
+            = object.name

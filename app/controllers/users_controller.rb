@@ -12,12 +12,26 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    #@followers_ids = Relationship.where("followed_id = #{@user.id}").pluck(:follower_id)
-    #@followers = {}
-    #@followers_ids.each {|id| @followers << User.find(id)}
-    @followeds = @user.followeds
-    #@followers_sample = @followers.count > 5 ? @followers.sample(4) : @followers
-    @followeds_sample = @followeds.count > 5 ? @followeds.sample(4) : @followeds
+    #@relations = Relationship.where("follower_id = ? OR followed_id = ?", @user.id, @user.id)
+    followeds_rel = Relationship.where('follower_id = ?', @user.id).pluck(:followed_id)
+    @followeds = User.where(id: followeds_rel)
+    followers_rel = Relationship.where('followed_id = ?', @user.id).pluck(:follower_id)
+    @followers = User.where(id: followers_rel)
+    @followers_sample = @followers.count > 5 ? @followers.sample(5) : @followers
+    @followeds_sample = @followeds.count > 5 ? @followeds.sample(5) : @followeds
+
+    favourites = Favourite.where(user_id: current_user.id).pluck(:image_id)
+    @images = Image.joins(:category).find(favourites)
+    @objects = Array.new
+    @categories = Array.new
+    @images.each do |image|
+      image_category = image.category
+      @categories << {id: image_category.id, name: image_category.name}
+      method = image_category.name.downcase.singularize.to_sym
+      object = image.send(method)
+      @objects << object
+    end
+    @categories.uniq! {|object| object[:id] }
   end
 
   # GET /users/new

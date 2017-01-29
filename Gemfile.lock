@@ -222,6 +222,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   font-awesome-rails
   haml-rails
+  i18n
   jbuilder (~> 2.5)
   jquery-rails
   jquery-slick-rails

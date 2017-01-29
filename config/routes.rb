@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   get '/rate/(:id)' => 'rate#from_category'
   get '/info/(:id)' => 'rate#show_info'
 
-  post '/favourites/(:id)' => 'favourite#create'
+  post '/favourites/(:id)' => 'favourites#create'
+  delete '/favourites/(:id)' => 'favourites#destroy'
 
   resources :values, only: [:new, :create]
   resources :images  do

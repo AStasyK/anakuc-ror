@@ -6,10 +6,10 @@ class FavouritesController < ApplicationController
     @favourite = Favourite.new(user_id: current_user.id)
     @favourite.image_id = @image.id
     respond_to do |format|
-      @favourite.save
+      if @favourite.save
         format.js
       else
-        format.html { render 'rate/index', alert: "Something's gone wrong" }
+        format.html { render template: 'rate/index', alert: "Something's gone wrong" }
       end
     end
   end
@@ -26,6 +26,6 @@ class FavouritesController < ApplicationController
     @image = Image.find(params[:id])
   end
   def set_favourite
-    @favourite = Favourite.where(image_id: params[:id]).where(user_id: current_user.id)
+    @favourite = Favourite.where(image_id: params[:id]).where(user_id: current_user.id).first
   end
 end

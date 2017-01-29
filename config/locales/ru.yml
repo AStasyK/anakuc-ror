@@ -1,0 +1,54 @@
+ru:
+  hello: "Привет, мир"
+  save: "Cохранить"
+  about: 'О сайте'
+  contacts: 'Контакты'
+  help: 'Помощь'
+  find: 'Найти'
+
+
+  shared:
+    header:
+      home: "Главная"
+      help: "Помощь"
+      log_in: "Войти"
+      log_out: "Выйти"
+      profile: "Моя страница"
+      settings: "Настройки"
+#      logged_msg: "Вошел как "
+
+    footer:
+      about: "О сайте"
+      contact: "Контакты"
+      dev_msg: "Сайт в разработке"
+
+  sessions:
+    new:
+      log_in: "Войти"
+      sign_up: "Регистрация"
+      email: "E-mail"
+      password: "Пароль"
+
+
+  users:
+    form:
+      name: "Имя"
+      email: "E-mail"
+      password: "Пароль"
+      password_confirmation: "Подтверждение пароля"
+#      confirmation: "Подтверждение"
+      create_account: "Создать мой аккаунт"
+
+    new:
+      new_user_sign_up: "Регистрация нового пользователя"
+      back: "Назад"
+
+    show:
+      work: "Экспертиза"
+      email: "Email"
+
+  rate:
+    index:
+      def_select_theme: 'Выберите категорию'
+      choose_rate: 'Поделись своим мнением'
+

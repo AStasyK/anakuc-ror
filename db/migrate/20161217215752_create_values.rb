@@ -7,7 +7,7 @@ class CreateValues < ActiveRecord::Migration[5.0]
 
       t.timestamps
 
-      add_index :user_rate, [:image_id, :user_id], unique: true
+      add_index :values, [:image_id, :user_id], unique: true
     end
   end
 end

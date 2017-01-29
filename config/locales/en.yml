@@ -20,4 +20,56 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello: 'Hello world'
+  save: 'Save'
+
+  shared:
+    header:
+      home: "Home"
+      help: "Help"
+      log_in: "Log in"
+      log_out: "Log out"
+      profile: "My page"
+      settings: "Settings"
+#      logged_msg: "Logged in as "
+
+    footer:
+      about: "About"
+      contact: "Contacts"
+      dev_msg: "App is in Development"
+
+  sessions:
+    new:
+      log_in: "Log in"
+      sign_up: "Sign up"
+      email: "E-mail"
+      password: "Password"
+
+  users:
+    form:
+      name: "Name"
+      email: "E-mail"
+      password: "Password"
+      password_confirmation: "Password confirmation"
+#      confirmation: "Подтверждение"
+      create_account: "Create my account"
+
+    new:
+      new_user_sign_up: "New user sign up"
+      back: "Back"
+
+
+    show:
+      work: "Proceed to work"
+      email: "Email"
+
+  rate:
+    index:
+      def_select_theme: 'Select category'
+      choose_rate: 'Share your opinion'
+
+  main:
+    about: 'About'
+    contacts: 'Contacts'
+    help: 'Help'
+    find: 'Find'

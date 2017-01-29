@@ -1,6 +1,4 @@
 $(document).ready(function() {
     $('#fav-btn').text('Add to favourites');
-
-    //**render image info and rate form
-    <%= j render 'rate/index' %>
+    $('#fav-btn').data('method', 'post');
 });

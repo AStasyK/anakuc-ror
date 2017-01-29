@@ -34,6 +34,9 @@ body {
     /*margin-bottom: 60px;*/
     color: #fff;
 }
+body, div, table, tr, td, th, p, ul, li, a, form, input, button{
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, Sans-Serif !important;
+}
 .box {
     width: 90%;
     margin: 0 auto;
@@ -92,4 +95,7 @@ li .fa {
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
     background: #111;
     color: #55AE55;
+}
+.nav .locale a{
+    display: inline-block;
 }
